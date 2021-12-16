@@ -10,5 +10,7 @@ public class Hello {
         System.out.println("Created Git repository");
 
         System.out.println("Adding more info");
+
+        System.out.println("Adding even more info");
     }
 }
