@@ -12,5 +12,8 @@ public class Hello {
         System.out.println("Adding more info");
 
         System.out.println("Adding even more info");
+
+        System.out.println("Local repo is already publish to GitHub");
+        System.out.println("Doing more work");
     }
 }
