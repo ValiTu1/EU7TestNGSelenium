@@ -120,12 +120,12 @@ public class HW {
 
         driver.findElement(By.id("ctl00_MainContent_btnDelete")).click();
 
-        WebElement getNewName = driver.findElement(By.xpath("//td[2]"));
+        WebElement actualName = driver.findElement(By.xpath("//td[2]"));
 
-        String newList = getNewName.getText();
-        System.out.println(newList);
+        String table = actualName.getText();
+        System.out.println(table);
 
-        Assert.assertFalse(newList.contains(expectedName));
+        Assert.assertFalse(table.contains(expectedName));
 
 
         //Assert.assertFalse(driver.findElement(By.id(checkBox1ID)).isDisplayed(),"checkbox should not exist anymore");
