@@ -1,29 +1,24 @@
 package com.cybertek.tests.day12_properties_driver_tests;
 
+import com.cybertek.tests.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.utilities.Driver;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class PropertiesTest {
+import java.util.concurrent.TimeUnit;
+
+public class LoginTest extends TestBase {
+
+
 
     @Test
-    public void test1(){
-        String browserType = ConfigurationReader.get("browser");
-
-        WebDriver driver = WebDriverFactory.getDriver(browserType);
-
-        System.out.println("browserType = " + browserType);
-
-        String url = ConfigurationReader.get("url");
-        System.out.println("url = " + url);
-    }
-
-    @Test
-    public void openBrowserWithChrome(){
-        WebDriver driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
+    public void OpenBrowserWithConf(){
 
         driver.get(ConfigurationReader.get("url"));
 
@@ -33,9 +28,6 @@ public class PropertiesTest {
         driver.findElement(By.id("prependedInput")).sendKeys(username);
         driver.findElement(By.id("prependedInput2")).sendKeys(password, Keys.ENTER);
 
-        //Singleton design pattern let us use the same version of an object across the whole program
-
-
-
     }
+
 }
