@@ -1,5 +1,6 @@
 package com.cybertek.utilities;
 
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -11,55 +12,52 @@ import org.testng.Assert;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.*;
-import java.util.NoSuchElementException;
+import java.util.List;
+
 
 public class BrowserUtils {
-
     /*
-    * takes screenshot
-    * @param name
-    * take a name of the test and returns a path to screenshot takes
-    * */
-
-    public static String getScreensshot(String name) throws IOException{
-        //name the screenshot with the current date time to avoid duplicate name
-        String date = new SimpleDateFormat("yyyMMddhhmmss").format(new Date());
-        //TakesScreenshot ---> interface from Selenium which takes screenshots
+     * takes screenshot
+     * @param name
+     * take a name of a test and returns a path to screenshot takes
+     */
+    public static String getScreenshot(String name) throws IOException {
+        // name the screenshot with the current date time to avoid duplicate name
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        // TakesScreenshot ---> interface from selenium which takes screenshots
         TakesScreenshot ts = (TakesScreenshot) Driver.get();
         File source = ts.getScreenshotAs(OutputType.FILE);
-        //full path to the screenshot location
-        String target = System.getProperty("user.dir") + name + date + ".png";
+        // full path to the screenshot location
+        String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
         File finalDestination = new File(target);
-        //save the screenshot to the path given
-        FileUtils.copyFile(source,finalDestination);
+        // save the screenshot to the path given
+        FileUtils.copyFile(source, finalDestination);
         return target;
     }
 
-    /*
-    * Switches to new window by the exact title. returns to original window if target file not found
-    * */
-
-    public static void switchToWindow(String targetFile){
+    /**
+     * Switches to new window by the exact title. Returns to original window if target title not found
+     * @param targetTitle
+     */
+    public static void switchToWindow(String targetTitle,WebDriver driver) {
         String origin = Driver.get().getWindowHandle();
-        for(String handle: Driver.get().getWindowHandles()){
+        for (String handle : Driver.get().getWindowHandles()) {
             Driver.get().switchTo().window(handle);
-            if(Driver.get().getTitle().equals(targetFile)){
+            if (Driver.get().getTitle().equals(targetTitle)) {
                 return;
             }
         }
         Driver.get().switchTo().window(origin);
     }
 
-    /*
-    *
-    * Moves the mouse to given element
-    *
-    * @param element on which to hover
-    * */
-
-    public static void hover(WebElement element){
+    /**
+     * Moves the mouse to given element
+     *
+     * @param element on which to hover
+     */
+    public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(element).perform();
     }
@@ -402,6 +400,10 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+
+
+
 
 
 }
