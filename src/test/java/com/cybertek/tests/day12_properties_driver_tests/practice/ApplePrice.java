@@ -1,4 +1,4 @@
-package com.cybertek.tests.practice;
+package com.cybertek.tests.day12_properties_driver_tests.practice;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;

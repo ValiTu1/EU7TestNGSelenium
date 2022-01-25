@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage{
 
     public LoginPage(){
         PageFactory.initElements(Driver.get(), this);
@@ -31,6 +31,13 @@ public class LoginPage {
 
         String username = ConfigurationReader.get("storemanager_username");
         String password = ConfigurationReader.get("storemanager_password");
+
+        login(username, password);
+    }
+
+    public void loginAsDriver(){
+        String username = ConfigurationReader.get("driver_username");
+        String password = ConfigurationReader.get("driver_password");
 
         login(username, password);
     }

@@ -10,6 +10,8 @@ public class FilePathExample {
         //System.out.println(System.getProperty("user.dir"));
 
         String projectPath = System.getProperty("user.dir");
+
+        System.out.println("projectPath = " + projectPath);
         String filePath = "\\src\\test\\resources\\textfile.txt";
 
         String fullPath = projectPath + filePath;

@@ -16,11 +16,12 @@ public class PositiveLoginTest extends TestBase {
 
         loginPage= new LoginPage();
 
-        String username = ConfigurationReader.get("driver_username");
+        /*String username = ConfigurationReader.get("driver_username");
         String password = ConfigurationReader.get("driver_password");
 
         loginPage.login(username,password);
-
+*/
+        loginPage.loginAsDriver();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://qa1.vytrack.com/");
 
