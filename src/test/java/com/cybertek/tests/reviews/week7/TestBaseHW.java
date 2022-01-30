@@ -83,14 +83,14 @@ public class TestBaseHW {
             extentLogger.addScreenCaptureFromPath(screenshotPath);
 
             extentLogger.fail(result.getThrowable());
-        }else{// if you also want to get screenshot if scenario passes
+        }/*else{// if you also want to get screenshot if scenario passes
             //record the name of passed test case
             extentLogger.pass(result.getName());
             //take the screenshot and return location of screenshot
             String screenShotPath= BrowserUtils.getScreenshot(result.getName());
             //add your screenshot to your report
             extentLogger.addScreenCaptureFromPath(screenShotPath);
-        }
+        }*/
         Thread.sleep(2000);
         Driver.closeDriver();
     }
