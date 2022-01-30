@@ -29,7 +29,7 @@ public class NoSelectDropDown {
     }
 
     @Test
-    public void test1(){
+    public void test1() throws InterruptedException {
 
         driver.get("http://practice.cybertekschool.com/dropdown");
 
@@ -41,13 +41,15 @@ public class NoSelectDropDown {
         List<WebElement> dropdownOptions = driver.findElements(By.cssSelector(".dropdown-menu.show>a"));
 
         System.out.println("elements.size() = " + dropdownOptions.size());
-        Assert.assertEquals(dropdownOptions.size(),5,"verify size of options");
+       Assert.assertEquals(dropdownOptions.size(),5,"verify size of options");
 
         for (WebElement dropdownOption : dropdownOptions) {
             System.out.println(dropdownOption.getText());
         }
 
         dropdownOptions.get(2).click();
+
+        Thread.sleep(5000);
 
 
         /*for (WebElement option : dropdownOptions) {

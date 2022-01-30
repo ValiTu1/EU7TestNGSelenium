@@ -3,6 +3,7 @@ package com.cybertek.tests.day16_ddf;
 import com.cybertek.utilities.ExcelUtil;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,16 @@ public class ExcelUtilsDemo {
 
         //get Nona as a value
         System.out.println("dataList.get(3).get(\"firstname\") = " + dataList.get(2).get("firstname"));
+
+        // get Harber as result
+        System.out.println("dataList.get(8).get(\"lastname\") = " + dataList.get(8).get("lastname"));
+
+        //get all data in 2D array
+
+        String[][] data = qa3short.getDataArray();
+
+        //print 2D array
+        System.out.println(Arrays.deepToString(data));
 
 
     }

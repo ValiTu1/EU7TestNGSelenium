@@ -19,12 +19,12 @@ public class LoginPage{
     public WebElement passwordInput;
 
     @FindBy(id = "_submit")
-    public WebElement loginInput;
+    public WebElement loginBtnInput;
 
     public void login(String username, String password){
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
-        loginInput.click();
+        loginBtnInput.click();
     }
 
     public void loginAsStoreManager(){
